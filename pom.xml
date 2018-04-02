@@ -1,0 +1,158 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.practice</groupId>
+  <artifactId>MultiModuleParent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <!-- Parent POM should be POM only instaed of using JAR/WAR/EAR -->
+  <packaging>pom</packaging>
+  
+  <!-- Just take this code form nexus manager http://localhost:8081/nexus/#view-repositories;snapshots~summary 
+  
+  by default it will show an Unauthenticated user error for that we need to set <servers> in settings.xml 
+  
+  
+  Here only those Modules would be uploaded where parent tab is there on each Child module else it will display an erro 
+  
+  example is MavenDispatcherServlet project which is not marked by <parent> tag so displays an error
+  
+  Mark MavenDispatcherServlet project as Parent of MultiModuleProject it will surely work 
+  -->
+  
+  <!--  This section is just to Post any artifact To repo but to resolve artifacts this will not help for that we need to incudle <profiles> <repository> in
+  settings.xml file
+   -->
+  <distributionManagement>
+  <snapshotRepository>
+    <id>nexus-snapshots</id>
+    <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+    <layout>default</layout>
+  </snapshotRepository>
+</distributionManagement>
+
+<!-- Based on Profile activation only -->  
+  <modules>
+  	<module>business</module>
+  	<module>api</module>
+  	<!-- <module>../MavenDispatcherServlet</module> -->
+  </modules>
+  
+   <!-- <modules>
+  	<module>../MavenDispatcherServlet</module>
+  	<module>api</module>
+  </modules> -->
+  
+   <profiles>
+  
+  <profile>
+  <id>jdk7</id>
+  <activation>
+  <jdk>1.7</jdk>
+  </activation>
+ 
+  <modules>
+  <module>api
+  </module>
+  </modules>
+  
+  </profile>
+  
+  <profile>
+  <id>jdk8</id>
+  <activation>
+  <jdk>1.8</jdk>
+  </activation>
+ 
+  <modules>
+  <module>business
+  </module>
+  </modules>
+  
+  </profile>
+  
+  
+  </profiles>
+  
+  <!--  Here in parent pom we can just specify <dependencies> only so here we no need to then include 
+  
+  dependencies in child module rather than <dependencyManagement> 
+  
+  But the problem without dependency management is that all the sub modules will definatly having all Parent dependencies even it does not require
+  
+  So no option of ON/OFF in sub moudles without dependency management
+  -->
+  
+  
+  <properties>
+  <powermockito-version>1.6.4</powermockito-version>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  
+  </properties>
+  <dependencyManagement>
+  <dependencies>
+  <dependency>
+    <groupId>org.powermock</groupId>
+    <artifactId>powermock-api-mockito</artifactId>
+    <version>${powermockito-version}</version>
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.powermock</groupId>
+    <artifactId>powermock-module-junit4</artifactId>
+    <version>${powermockito-version}</version>
+    <scope>test</scope>
+</dependency>
+  
+  
+  </dependencies>
+  
+  </dependencyManagement>
+  <build>
+  <pluginManagement>
+  
+  <plugins>
+  
+  <plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.7.0</version>
+          <configuration>
+           <source>1.7</source>
+           <target>1.7</target>
+          </configuration>
+  
+  </plugin>
+  
+  <!-- While Executing java program we are using Java goal which will not swapn no new thread instead of exec 
+  
+  phase is to be specified mandaterly if we bind Execution with Standard build -->
+ 
+   <plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>exec-maven-plugin</artifactId>
+  <version>1.2.1</version>
+  <executions>
+    <execution>
+      <id>my-execution</id>
+       <!-- Required -->
+      <phase>install</phase>
+      <goals>
+        <goal>java</goal>
+      </goals>
+      
+    </execution>
+  </executions>
+ 
+</plugin>
+  
+  </plugins>
+  
+  
+  </pluginManagement>
+  
+  
+  </build>
+  
+  
+ 
+</project>
