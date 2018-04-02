@@ -21,7 +21,7 @@
   <!--  This section is just to Post any artifact To repo but to resolve artifacts this will not help for that we need to incudle <profiles> <repository> in
   settings.xml file
    -->
-   
+  
    <!--  Now we need to include both Snapshot and Release repos over here this Section is used while Deploying Artifacts using mvn deploy
    -->
    <!-- As well as change settings.xml file to read artifacts from release repo -->
@@ -45,6 +45,7 @@
 	<developerConnection>scm:git@github.com:sunnygrg711/BecomeExpert.git</developerConnection>
 	<url>scm:git@github.com:sunnygrg711/BecomeExpert.git</url>
 </scm>
+
 
 <!-- Based on Profile activation only -->  
   <modules>
@@ -162,6 +163,7 @@
  
 </plugin>
   
+
   <plugin>
   <groupId>org.apache.maven.plugins</groupId>
   <artifactId>maven-release-plugin</artifactId>
@@ -172,6 +174,7 @@
   
   </configuration>
 </plugin>
+
   </plugins>
   
   
