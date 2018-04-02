@@ -1,0 +1,138 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.practice</groupId>
+    <artifactId>MultiModuleParent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>business</artifactId>
+  
+  <dependencies>
+  <dependency>
+    <groupId>org.powermock</groupId>
+    <artifactId>powermock-api-mockito</artifactId>
+    
+</dependency>
+
+ <dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-validator</artifactId>
+    <version>[,5.2.4.Final]</version>
+</dependency>
+
+	<!-- To use its sub modeule we need to use below Sub module depenedency always use Pre defined properties instead of Hard coded -->
+  
+  <dependency>
+  <groupId>${project.groupId}</groupId>
+  <artifactId>api</artifactId>
+  <version>${project.version}</version>
+  </dependency>
+  </dependencies>
+  
+  <profiles>
+ <!--  
+  <profile>
+  <id>output</id>
+  <activation>
+  <property>
+  <name>Existing</name>
+  <value>yes</value>
+  </property>
+  
+  </activation>
+   <build>
+  <plugins>
+  
+  <plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+           <source>1.8</source>
+           <target>1.8</target>
+          </configuration>
+  </plugin>
+   Here we can specify both in POM as well as command line in any sense
+   
+  <plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  
+  <artifactId>exec-maven-plugin</artifactId>
+    <configuration>
+    <mainClass>business.APIModelImp</mainClass>
+    <arguments>
+    <argument>
+    ${project.artifactId}
+    </argument>
+    <argument>
+    ${Existing}
+    </argument>
+    </arguments>
+    </configuration>
+  </plugin>
+  
+  </plugins>
+  </build>
+  </profile>
+  
+  -->
+  <profile>
+  <id>fileExistingProfile</id>
+  
+  <activation>
+  <!-- <activeByDefault>true</activeByDefault> -->
+  
+  <!-- <file>
+  <exists>${java.home}/../lib/tools.jar</exists>
+  
+  <exists>/src/main/java/business/APIModelImp.java</exists>
+  </file> -->
+  
+  <!-- <jdk>1.8</jdk> -->
+  
+  <os>
+  <family>windows</family>
+   
+  </os>
+  </activation>
+   
+  <properties>
+  <java.path>${java.home}/../lib/tools.jar</java.path>
+  </properties>
+   <build>
+  <plugins>
+  
+  <!-- <plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+           <source>1.8</source>
+           <target>1.8</target>
+          </configuration>
+  </plugin> -->
+  <!--  Here we can specify both in POM as well as command line in any sense
+   -->
+  <plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  
+  <artifactId>exec-maven-plugin</artifactId>
+    <configuration>
+    <mainClass>business.APIModelImp</mainClass>
+    <arguments>
+    <argument>
+    ${project.artifactId}
+    </argument>
+    <argument>
+    ${java.path}
+    </argument>
+    </arguments>
+    </configuration>
+  </plugin>
+  
+  </plugins>
+  </build>
+  
+  
+  
+  </profile>
+  </profiles>
+</project>
