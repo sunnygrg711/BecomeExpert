@@ -42,13 +42,10 @@
 <!-- SCM connection format https://stackoverflow.com/questions/47875680/maven-release-plugin-permission-denied-publickey-github -->
 
 <scm>
-	<connection>scm:git:ssh://github.com/sunnygrg711/BecomeExpert.git</connection>
-	<developerConnection>scm:git:ssh://github.com/sunnygrg711/BecomeExpert.git</developerConnection>
-	<url>scm:git:ssh://github.com/sunnygrg711/BecomeExpert.git</url>
-	
-	<!-- <connection>scm:git:ssh://git@github.com/sunnygrg711/BecomeExpert.git</connection>
+		
+	<connection>scm:git:ssh://git@github.com/sunnygrg711/BecomeExpert.git</connection>
 	<developerConnection>scm:git:ssh://git@github.com/sunnygrg711/BecomeExpert.git</developerConnection>
-	<url>https://github.com/sunnygrg711/BecomeExpert</url> -->
+	<url>https://github.com/sunnygrg711/BecomeExpert</url>
 	<!-- @ is used to take values from user -->
   <tag>v2.0.0-RELEASE</tag>
   </scm>
