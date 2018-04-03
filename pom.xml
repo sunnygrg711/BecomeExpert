@@ -39,7 +39,7 @@
 </distributionManagement>
 
 <!-- Maven and Git hub linkage for Release Pliugin scm should be added as Prefix USE below path to specify ssh or any other connection-->
-<!-- SCM connection format http://maven.apache.org/components/scm/git.html -->
+<!-- SCM connection format https://stackoverflow.com/questions/47875680/maven-release-plugin-permission-denied-publickey-github -->
 
 <scm>
 	<!-- <connection>scm:git:ssh://github.com/sunnygrg711/BecomeExpert.git</connection>
@@ -49,7 +49,7 @@
 	<connection>scm:git:ssh://git@github.com/sunnygrg711/BecomeExpert.git</connection>
 	<developerConnection>scm:git:ssh://git@github.com/sunnygrg711/BecomeExpert.git</developerConnection>
 	<url>scm:git:ssh://git@github.com/sunnygrg711/BecomeExpert.git</url>
-  <tag>v1.0.0-RELEASE</tag>
+  <tag>v1.0.1-RELEASE</tag>
   </scm>
 
 
