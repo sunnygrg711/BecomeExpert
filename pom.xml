@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.practice</groupId>
   <artifactId>MultiModuleParent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <!-- Parent POM should be POM only instaed of using JAR/WAR/EAR -->
   <packaging>pom</packaging>
   
@@ -38,12 +38,13 @@
   </repository>
 </distributionManagement>
 
-<!-- Maven and Git hub linkage for Release Pliugin scm should be added as Prefix-->
+<!-- Maven and Git hub linkage for Release Pliugin scm should be added as Prefix USE below path to specify ssh or any other connection-->
+<!-- SCM connection format http://maven.apache.org/components/scm/git.html -->
 
 <scm>
-	<connection>scm:git@github.com:sunnygrg711/BecomeExpert.git</connection>
-	<developerConnection>scm:git@github.com:sunnygrg711/BecomeExpert.git</developerConnection>
-	<url>scm:git@github.com:sunnygrg711/BecomeExpert.git</url>
+	<connection>scm:git:ssh://github.com/sunnygrg711/BecomeExpert.git</connection>
+	<developerConnection>scm:git:ssh://github.com/sunnygrg711/BecomeExpert.git</developerConnection>
+	<url>scm:git:ssh://github.com/sunnygrg711/BecomeExpert.git</url>
 </scm>
 
 
@@ -162,7 +163,6 @@
   </executions>
  
 </plugin>
-  
 
   <plugin>
   <groupId>org.apache.maven.plugins</groupId>
@@ -171,18 +171,10 @@
   <configuration>
   <tagNameFormat>v${project.version}</tagNameFormat>
   <autoVersionSubmodules>true</autoVersionSubmodules>
-  
   </configuration>
-</plugin>
-
+	</plugin>
   </plugins>
-  
-  
   </pluginManagement>
   
-  
   </build>
-  
-  
- 
 </project>
