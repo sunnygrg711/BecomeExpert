@@ -42,9 +42,13 @@
 <!-- SCM connection format http://maven.apache.org/components/scm/git.html -->
 
 <scm>
-	<connection>scm:git:ssh://github.com/sunnygrg711/BecomeExpert.git</connection>
+	<!-- <connection>scm:git:ssh://github.com/sunnygrg711/BecomeExpert.git</connection>
 	<developerConnection>scm:git:ssh://github.com/sunnygrg711/BecomeExpert.git</developerConnection>
-	<url>scm:git:ssh://github.com/sunnygrg711/BecomeExpert.git</url>
+	<url>scm:git:ssh://github.com/sunnygrg711/BecomeExpert.git</url> -->
+	
+	<connection>scm:git:ssh://git@github.com/sunnygrg711/BecomeExpert.git</connection>
+	<developerConnection>scm:git:ssh://git@github.com/sunnygrg711/BecomeExpert.git</developerConnection>
+	<url>scm:git:ssh://git@github.com/sunnygrg711/BecomeExpert.git</url>
   <tag>v1.0.0-RELEASE</tag>
   </scm>
 
