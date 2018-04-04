@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.practice</groupId>
   <artifactId>MultiModuleParent</artifactId>
-  <version>3.0.0-SNAPSHOT</version>
+  <version>3.0.0</version>
   <!-- Parent POM should be POM only instaed of using JAR/WAR/EAR -->
   <packaging>pom</packaging>
   
@@ -47,7 +47,7 @@
 	<developerConnection>scm:git:ssh://git@github.com/sunnygrg711/BecomeExpert.git</developerConnection>
 	<url>https://github.com/sunnygrg711/BecomeExpert</url>
 	<!-- @ is used to take values from user -->
-  <tag>v2.0.0-RELEASE</tag>
+  <tag>v3.0.0</tag>
   </scm>
 
 
